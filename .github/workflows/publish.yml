@@ -6,7 +6,7 @@ on:
       
 env:
   # HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.homebrew-freecad-pg13-PAT }}
-  HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
+  # HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
   PULL_REQUEST: ${{ github.event.pull_request.number }}
   BRANCH: ${{ github.event.pull_request.head.ref }}
 
