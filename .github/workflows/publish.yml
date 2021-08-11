@@ -5,7 +5,8 @@ on:
       - labeled
       
 env:
-  HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.homebrew-freecad-pg13-PAT }}
+  # HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.homebrew-freecad-pg13-PAT }}
+  HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
   PULL_REQUEST: ${{ github.event.pull_request.number }}
   BRANCH: ${{ github.event.pull_request.head.ref }}
 
@@ -18,13 +19,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          token: "${{ secrets.homebrew-freecad-pg13-PAT }}"
+          # token: "${{ secrets.homebrew-freecad-pg13-PAT }}"
+          token: ${{ github.token }}
 
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
-
-        #       - name: Set up git
-        #         uses: Homebrew/actions/git-user-config@master
+      # - name: Set up git
+      #   uses: Homebrew/actions/git-user-config@master
 
       - name: Cache Homebrew Bundler RubyGems
         id: cache
@@ -52,8 +53,8 @@ jobs:
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
         with:
-          token: ${{ secrets.homebrew-freecad-pg13 }}
-          #           token: ${{ github.token }}
+          token: ${{ github.token }}
+          # token: ${{ secrets.homebrew-freecad-pg13 }}
           branch: main
 
       - name: Delete branch
