@@ -4,6 +4,8 @@ on:
     types:
       - labeled
   workflow_dispatch:
+    branches:
+      - main
 
 env:
   # HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.homebrew-freecad-pg13-PAT }}
