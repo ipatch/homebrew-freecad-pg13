@@ -23,6 +23,8 @@ class SwigAT402 < Formula
     depends_on "automake" => :build
   end
 
+  # foo
+  # bar
   depends_on "pcre"
 
   uses_from_macos "ruby" => :test
