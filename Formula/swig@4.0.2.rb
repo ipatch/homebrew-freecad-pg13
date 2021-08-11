@@ -25,6 +25,7 @@ class SwigAT402 < Formula
 
   # foo
   # bar
+  # baz
   depends_on "pcre"
 
   uses_from_macos "ruby" => :test
