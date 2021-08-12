@@ -15,7 +15,7 @@ jobs:
         # os: [ubuntu-latest, macos-latest] # NOTE: default setup
         # os: [ macOS-latest ] # NOTE: good configuration, known to work
         os:
-          - macos-10.15
+          - macos-latest
           - macos-11.0
     runs-on: ${{ matrix.os }}
     steps:
