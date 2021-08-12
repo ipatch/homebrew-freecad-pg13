@@ -3,69 +3,31 @@ on:
   pull_request_target:
     types:
       - labeled
-  workflow_dispatch:
-    branches:
-      - main
-
-env:
-  # HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.homebrew-freecad-pg13-PAT }}
-  HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
-  PULL_REQUEST: ${{ github.event.pull_request.number }}
-  BRANCH: ${{ github.event.pull_request.head.ref }}
-
 jobs:
   pr-pull:
     if: contains(github.event.pull_request.labels.*.name, 'pr-pull')
-    # runs-on: ubuntu-latest
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          # token: "${{ secrets.homebrew-freecad-pg13-PAT }}"
-          token: ${{ github.token }}
-
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
-      # - name: Set up git
-      #   uses: Homebrew/actions/git-user-config@master
-
-      - name: Cache Homebrew Bundler RubyGems
-        id: cache
-        uses: actions/cache@v1
-        with:
-          path: ${{ steps.set-up-homebrew.outputs.gems-path }}
-          key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
-          restore-keys: ${{ runner.os }}-rubygems-
-
-      - name: Install Homebrew Bundler RubyGems
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: brew install-bundler-gems
 
       - name: Set up git
-        run: |
-          git config --global user.name "ipatchTestBot"
-          git config --global user.email "chris.r.jones.1983@gmail.com"
+        uses: Homebrew/actions/git-user-config@master
 
       - name: Pull bottles
-        #         env:
-        #           HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
-        #           PULL_REQUEST: ${{ github.event.pull_request.number }}
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
+          PULL_REQUEST: ${{ github.event.pull_request.number }}
         run: brew pr-pull --debug --tap=$GITHUB_REPOSITORY $PULL_REQUEST
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
         with:
           token: ${{ github.token }}
-          # token: ${{ secrets.homebrew-freecad-pg13 }}
           branch: main
 
       - name: Delete branch
         if: github.event.pull_request.head.repo.fork == false
+        env:
+          BRANCH: ${{ github.event.pull_request.head.ref }}
         run: git push --delete origin $BRANCH
-
-        #       - name: Delete branch
-        #         if: github.event.pull_request.head.repo.fork == false
-        #         env:
-        #           BRANCH: ${{ github.event.pull_request.head.ref }}
-        #         run: git push --delete origin $BRANCH
