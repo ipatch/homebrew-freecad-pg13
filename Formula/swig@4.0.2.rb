@@ -30,7 +30,8 @@ class SwigAT402 < Formula
   uses_from_macos "ruby" => :test
 
   def install
-    system "./autogen.sh" if build.head?
+    # NOTE: switching from sf to github src URL requires using `autogen.sh`
+    system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make"
