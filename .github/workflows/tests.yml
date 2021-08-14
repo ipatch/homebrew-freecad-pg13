@@ -17,7 +17,8 @@ jobs:
         # NOTE: homebrew-core uses a self hosted runner to generate bottles for the last 3 versions of macos
         # NOTE: exp with `self-hosted` runner
         # NOTE: `macOS-latest` is the default runner provided by github
-        os: [macOS-latest, self-hosted]
+        # os: [macOS-latest, self-hosted]
+        os: [ self-hosted ]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Set up Homebrew
