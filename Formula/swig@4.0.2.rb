@@ -1,7 +1,7 @@
 class SwigAT402 < Formula
   desc "Generate scripting interfaces to C/C++ code"
   homepage "http://www.swig.org/"
-  # TODO: triple check below URL, and sha
+  # TODO: triple check below URL, and shasum
   url "https://github.com/swig/swig/archive/refs/tags/v4.0.2.tar.gz"
   sha256 "b5f43d5f94c57ede694ffe5e805acc5a3a412387d7f97dcf290d06c46335cb0b"
   license "GPL-3.0"
