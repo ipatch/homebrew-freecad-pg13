@@ -14,8 +14,8 @@ class SwigAT402 < Formula
 
   bottle do
     root_url "https://github.com/ipatch/homebrew-freecad-pg13/releases/download/swig@4.0.2-4.0.2"
-    rebuild 2
-    sha256 big_sur: "aa5bac13de350bece7941a414e8022702eda90f6c95bcb168b9cccc440ca74b4"
+    rebuild 3
+    sha256 mojave: "7ed4b1104473a2be1a4be0c247525bf0b4cbf86a36bc09612e0daeccecc15b28"
   end
 
   head do
