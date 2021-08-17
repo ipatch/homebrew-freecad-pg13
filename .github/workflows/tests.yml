@@ -19,7 +19,7 @@ jobs:
         # NOTE: `macOS-latest` is the default runner provided by github
         # os: [macOS-latest, self-hosted]
         # os: [ self-hosted-bigsur, self-hosted-catalina, self-hosted-mojave ]
-        os: [ self-hosted-mojavevm ]
+        os: [ self-hosted-mojavevm, self-hosted-catalinavm ]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Set up Homebrew

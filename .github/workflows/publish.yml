@@ -9,7 +9,8 @@ jobs:
   pr-pull:
     if: contains(github.event.pull_request.labels.*.name, 'pr-pull')
     # runs-on: ubuntu-latest
-    runs-on: [ self-hosted-mojavevm ]
+    # runs-on: [ self-hosted-mojavevm ]
+    runs-on: [ macos-latest ]
     # os: [ self-hosted-mojavevm ]
     # strategy:
     # matrix:
