@@ -3,7 +3,7 @@ class SwigAT402 < Formula
   homepage "http://www.swig.org/"
   url "https://downloads.sourceforge.net/project/swig/swig/swig-4.0.2/swig-4.0.2.tar.gz"
   sha256 "d53be9730d8d58a16bf0cbd1f8ac0c0c3e1090573168bfa151b01eb47fa906fc"
-  # NOTE: see my github issue, config script does not have +x bit set foo1
+  # NOTE: see my github issue, config script does not have +x bit set foo2
   # url "https://github.com/swig/swig/archive/refs/tags/v4.0.2.tar.gz"
   # sha256 "b5f43d5f94c57ede694ffe5e805acc5a3a412387d7f97dcf290d06c46335cb0b"
   license "GPL-3.0"
