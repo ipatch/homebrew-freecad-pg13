@@ -7,7 +7,7 @@ on:
       - master
 
   pull_request:
-  workflow_dispatch:
+  # workflow_dispatch:  # NOTE: homebrew gha presently not supported
 
 jobs:
   test-bot:
