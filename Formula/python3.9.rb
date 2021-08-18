@@ -11,7 +11,7 @@ class Python39 < Formula
     regex(%r{href=.*?v?(3\.9(?:\.\d+)*)/?["' >]}i)
   end
 
-  # setuptools remembers the build flags python is built with and uses them to
+  # NOTE: setuptools remembers the build flags python is built with and uses them to
   # build packages later. Xcode-only systems need different flags.
   bottle do
     root_url "https://github.com/freecad/homebrew-freecad/releases/download/07.28.2021"
