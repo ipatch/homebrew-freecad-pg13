@@ -12,7 +12,7 @@ class Python39 < Formula
   end
 
   # NOTE: setuptools remembers the build flags python is built with and uses them to
-  # build packages later. Xcode-only systems need different flags.
+  # build packages later. Xcode only systems need different flags.
   bottle do
     root_url "https://github.com/ipatch/homebrew-freecad-pg13/releases/download/python3.9-3.9.0_5"
     sha256 mojave: "3cb88dcc2f67fdb13b71e0376f0661a95ab50e45c8716a6eb59d510807120dbb"
