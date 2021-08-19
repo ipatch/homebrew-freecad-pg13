@@ -15,7 +15,10 @@ class Python39 < Formula
   # build packages later. Xcode only systems need different flags.
   bottle do
     root_url "https://github.com/ipatch/homebrew-freecad-pg13/releases/download/python3.9-3.9.0_5"
-    sha256 mojave: "3cb88dcc2f67fdb13b71e0376f0661a95ab50e45c8716a6eb59d510807120dbb"
+    rebuild 1
+    sha256 big_sur:  "3ddf06817e919ac90a899f2dfb5c05f5c874c94532c4bbc2746d22065798161a"
+    sha256 catalina: "5e692c0d27cf28d0f1fbcda2f7115b31be9bffb398c5da44c5d7baafc0dc0d6b"
+    sha256 mojave:   "6c157ebde014aab28430723bc6996f4293d0edf700b95723b1e9b67fd35c6c09"
   end
 
   pour_bottle? do
